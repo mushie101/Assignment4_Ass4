@@ -3,7 +3,7 @@
 	<!-- EDIT -->
 	<div align="center" id="fldiv">
 
-<style type="text/css">
+<!--<style type="text/css">
 .spmHandler {
    background: transparent;
    padding: 5px;
@@ -11,26 +11,74 @@
 
 
 }
-</style>
+</style>-->
 
 
 
-<table width="100%" style="background-color:#FFD4A8; padding:0px; margin:0px">
+<table width="100%" border="1" style="background-color:#FFD4A8; padding:0px; margin:0px">
+<tbody>
+	<tr>
+              <th style="text-align:center">Emission Matrix</th>
+        </tr>
+	<tr>
+	
+             <td align="center">
+	      <table width="100%" border="1" style="padding:0px; margin:0px">
+		      <tbody>
+			      <tr>
+				<td> </td>
+				<td align="center"><b>book </b></td>
+			      	<td align="center"><b>park</b></td>
+			      	<td align="center"><b>car</b></td>
+			      	<td align="center"><b>is</b></td>
+			      	<td align="center"><b>in</b></td>
+			      	<td align="center"><b>a</b></td>
+			      	<td align="center"><b>the</b></td>
+			      </tr>
+			      
+			      <tr>
+			      	<td align="center"><b>determiner</b></td>
+				<td align="center">0</td>
+				<td align="center">0</td>
+				<td align="center">0</td>
+				<td align="center">0</td>
+				<td align="center">0</td>
+				<td align="center">1</td>
+				<td align="center">1</td>
+			      </tr>
+			      
+			      <tr>
+			        <td align="center"><b>noun</b></td>
+				<td align="center">0.5</td>
+				<td align="center">0.5</td>
+				<td align="center">1</td><td align="center">0</td>
+				<td align="center">0</td><td align="center">0</td>
+				<td align="center">0</td>
+			      </tr>
+			      <tr>
+				<td align="center"><b>verb</b></td>
+				<td align="center">0.5</td><td align="center">0.5</td>	
+				<td align="center">0</td><td align="center">1</td>
+				<td align="center">0</td><td align="center">0</td>
+				<td align="center">0</td></tr><tr><td align="center"><b>preposition</b></td>
+				<td align="center">0</td><td align="center">0</td>
+				<td align="center">0</td><td align="center">0</td>
+				<td align="center">1</td><td align="center">0</td>
+				<td align="center">0</td>
+			     </tr>
+		      </tbody>
+	      </table>
+            </td>
+	</tr>
+     </tbody>
+   </table>
+   <br><br><br>
+<table width="100%" border="1"style="background-color:#FFD4A8; padding:0px; margin:0px">
 <tbody><tr>
-<th>Emission Matrix</th>
+<th style="text-align:center">Transition Matrix</th>
 </tr>
 <tr>
-<td align="center">
-	<table width="100%" style="padding:0px; margin:0px">
-	<tbody><tr>
-	<td></td><td align="center"><b>book </b></td><td align="center"><b>park</b></td><td align="center"><b>car</b></td><td align="center"><b>is</b></td><td align="center"><b>in</b></td><td align="center"><b>a</b></td><td align="center"><b>the</b></td></tr><tr><td align="center"><b>determiner</b></td><td align="center">0</td><td align="center">0</td><td align="center">0</td><td align="center">0</td><td align="center">0</td><td align="center">1</td><td align="center">1</td></tr><tr><td align="center"><b>noun</b></td><td align="center">0.5</td><td align="center">0.5</td><td align="center">1</td><td align="center">0</td><td align="center">0</td><td align="center">0</td><td align="center">0</td></tr><tr><td align="center"><b>verb</b></td><td align="center">0.5</td><td align="center">0.5</td><td align="center">0</td><td align="center">1</td><td align="center">0</td><td align="center">0</td><td align="center">0</td></tr><tr><td align="center"><b>preposition</b></td><td align="center">0</td><td align="center">0</td><td align="center">0</td><td align="center">0</td><td align="center">1</td><td align="center">0</td><td align="center">0</td></tr></tbody></table>
-</td></tr></tbody></table><br><br><br>
-<table width="100%" style="background-color:#FFD4A8; padding:0px; margin:0px">
-<tbody><tr>
-<th>Transition Matrix</th>
-</tr>
-<tr>
-<td align="center"><table width="100%" style="margin:0px; padding:0px">
+<td align="center"><table border="1" width="100%" style="margin:0px; padding:0px">
 	<tbody><tr>
 	<td></td><td align="center"><b>eos</b></td><td align="center"><b>determiner</b></td><td align="center"><b>noun</b></td><td align="center"><b>verb</b></td><td align="center"><b>preposition</b></td></tr><tr><td align="center"><b>eos</b></td><td align="center">0</td><td align="center">0.33</td><td align="center">0</td><td align="center">0.5</td><td align="center">0</td></tr><tr><td align="center"><b>determiner</b></td><td align="center">0</td><td align="center">0</td><td align="center">1</td><td align="center">0</td><td align="center">0</td></tr><tr><td align="center"><b>noun</b></td><td align="center">1</td><td align="center">0</td><td align="center">0</td><td align="center">0.5</td><td align="center">0</td></tr><tr><td align="center"><b>verb</b></td><td align="center">0</td><td align="center">0.33</td><td align="center">0</td><td align="center">0</td><td align="center">1</td></tr><tr><td align="center"><b>preposition</b></td><td align="center">0</td><td align="center">0.33</td><td align="center">0</td><td align="center">0</td><td align="center">0</td></tr></tbody></table>
 </td>
