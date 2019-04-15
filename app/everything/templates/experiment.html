@@ -103,7 +103,11 @@
 </td>
 </tr>
 </tbody></table>
-
+	<br><br>
+<b> Viterbi Decoding </b>
+<br>
+<b> Sentence: </b> book a park
+<p style="color:blue;font-style:oblique;">You can answer a column only if you have completed the previous ones.(note:answer can also be upto three decimals)</p>
 <!--<br><br><br><b>Viterbi Decoding</b><br><br><b>Sentence:</b> Book a park<p style="color:blue;font-style:oblique;">You can answer a column only if you have completed the previous ones.(note:answer can also be upto three decimals)</p><table align="center" style="background-color:#FFD4A8;" border="0" id="viterbiDecoding" width="50%">
 
 
@@ -114,10 +118,30 @@
 </tbody>POS tags for the words in the sentence are as following:<p style="color:green;font-style:italic;">Book is verb</p><br><p style="color:green;font-style:italic;">a is determiner</p><br><p style="color:green;font-style:italic;">park is noun</p><br></table><div id="buttons"></div><br><br><p style="color:#008000;font-size:30px" id="right_wrong"></p><br><br><div align="center" id="answer"></div>
 
 		</div>-->
-		<br><br><br>
 <table border="1" align="center" style="background-color:#FFD4A8;" border="0" id="viterbiDecoding" width="50%">
-<tbody><tr>
-<td></td><td align="center"><b>Book</b></td><td align="center"><b>a</b></td><td align="center"><b>park</b></td></tr><tr><td align="center"><b>determiner</b></td><td align="center"><input type="text" name="v0" id="v0" onclick="change();" style="width:30px" align="center" value="0"></td><td align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr><tr><td align="center"><b>noun</b></td><td align="center"><input type="text" name="v1" id="v1" onclick="change();" style="width:30px" align="center" value="0"></td><td align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr><tr><td align="center"><b>verb</b></td><td align="center"><input type="text" name="v2" id="v2" onclick="change();" style="width:30px" align="center" value="0"></td><td align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr><tr><td align="center"><b>preposition</b></td><td align="center"><input type="text" name="v3" id="v3" onclick="change();" style="width:30px" align="center" value="0"></td><td align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr></tbody></table>
+	<tbody>
+		<tr>
+			<td></td>
+			<td align="center"><b>Book</b></td>
+			<td align="center"><b>a</b></td>
+			<td align="center"><b>park</b></td>
+		</tr>
+		<tr>
+			<td align="center"><b>determiner</b></td>
+			<td align="center"><input type="text" name="v0" id="v0" onclick="change();" style="width:30px" align="center" value="0"></td>
+			<td align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+			<td align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		</tr>
+		<tr>
+			<td align="center"><b>noun</b></td><td align="center"><input type="text" name="v1" id="v1" onclick="change();" style="width:30px" align="center" value="0"></td><td align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+			<td align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr><tr><td align="center"><b>verb</b></td><td align="center"><input type="text" name="v2" id="v2" onclick="change();" style="width:30px" align="center" value="0"></td>
+			<td align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr><tr><td align="center"><b>preposition</b></td>
+			<td align="center"><input type="text" name="v3" id="v3" onclick="change();" style="width:30px" align="center" value="0"></td>
+			<td align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+			<td align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		</tr>
+	</tbody>
+</table>
 
 <br><br>
 
