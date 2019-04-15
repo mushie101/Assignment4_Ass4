@@ -42,3 +42,8 @@ def procedure():
 @app.route("/Further_Readings/")
 def further_readings():
 	return render_template("further_readings.html")
+
+# Temporary
+@app.route("/exppage/")
+def exppage():
+	return render_template("exppage.html")
