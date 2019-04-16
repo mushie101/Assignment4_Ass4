@@ -1,19 +1,28 @@
 {% extends "temp.html" %}
 {% block content %}
 <h1 class="text-h2-lightblue">Experiment</h1>
-	<div class="content" id="experiment-article-section-4-content">
-		<div id="viterbi_decoding">		
-			<div id="experiment-article-section-4-content" class="content">
-				<div id="viterbi_decoding">
-					<br>
-						<div id="corpus" align="center"></div>
-						<br>
-						<div id="fldiv" align="center"></div>		
-				</div>
+
+<!-- Removed Select Corpus button
+<div class="content" id="experiment-article-section-4-content">
+	<div id="viterbi_decoding">		
+		<div id="experiment-article-section-4-content" class="content">
+			<div id="viterbi_decoding">
+				<table width="100%">
+					<tbody>
+						<tr>
+						<td align="center"><select name="option" onchange="getOption(this.value);"><option value="null_null">---Select Corpus---</option><option value="Book a car. Park the car. The book is in the car. The car is in a park._corpus1">Corpus A</option></select></td>
+						</tr>
+					</tbody>
+				</table> <br>
+				<div id="corpus" align="center"></div> <br>
+				<div id="fldiv" align="center"></div>		
 			</div>
 		</div>
 	</div>
-	        <div align="center" id="fldiv" style="display:hidden">
+</div>
+-->
+
+<div align="center" id="fldiv" style="display:hidden">
 
 <style type="text/css">
 .spmHandler {
@@ -95,48 +104,177 @@
         <td></td><td align="center"><b>eos</b></td><td align="center"><b>determiner</b></td><td align="center"><b>noun</b></td><td align="center"><b>verb</b></td><td align="center"><b>preposition</b></td></tr><tr><td align="center"><b>eos</b></td><td align="center">0</td><td align="center">0.33</td><td align="center">0</td><td align="center">0.5</td><td align="center">0</td></tr><tr><td align="center"><b>determiner</b></td><td align="center">0</td><td align="center">0</td><td align="center">1</td><td align="center">0</td><td align="center">0</td></tr><tr><td align="center"><b>noun</b></td><td align="center">1</td><td align="center">0</td><td align="center">0</td><td align="center">0.5</td><td align="center">0</td></tr><tr><td align="center"><b>verb</b></td><td align="center">0</td><td align="center">0.33</td><td align="center">0</td><td align="center">0</td><td align="center">1</td></tr><tr><td align="center"><b>preposition</b></td><td align="center">0</td><td align="center">0.33</td><td align="center">0</td><td align="center">0</td><td align="center">0</td></tr></tbody></table>
 </td>
 </tr>
-</tbody></table>
-	<br><br>
-<b> Viterbi Decoding </b>
-<br>
-<b> Sentence: </b> book a park
-<p style="color:blue;font-style:oblique;">You can answer a column only if you have completed the previous ones.(note:answer can also be upto three decimals)</p>
-<!--<br><br><br><b>Viterbi Decoding</b><br><br><b>Sentence:</b> Book a park<p style="color:blue;font-style:oblique;">You can answer a column only if you have completed the previous ones.(note:answer can also be upto three decimals)</p><table align="center" style="background-color:#FFD4A8;" border="0" id="viterbiDecoding" width="50%">
+</tbody>
+</table>
+<br><br><br>
 
-
-
-<tbody><tr>
-<td></td><td align="center"><b>Book</b></td><td align="center"><b>a</b></td><td align="center"><b>park</b></td></tr><tr><td align="center"><b>determiner</b></td><td align="center">0</td><td align="center"> <font size="3" color="#008800"><b>0.165</b></font></td><td align="center">0</td></tr><tr><td align="center"><b>noun</b></td><td align="center">0</td><td align="center">0</td><td align="center"> <font size="3" color="#008800"><b>0.165</b></font></td></tr><tr><td align="center"><b>verb</b></td><td align="center"> <font size="3" color="#008800"><b>0.5</b></font></td><td align="center">0</td><td align="center">0</td></tr><tr><td align="center"><b>preposition</b></td><td align="center">0</td><td align="center">0</td><td align="center">0</td></tr>
-
-</tbody>POS tags for the words in the sentence are as following:<p style="color:green;font-style:italic;">Book is verb</p><br><p style="color:green;font-style:italic;">a is determiner</p><br><p style="color:green;font-style:italic;">park is noun</p><br></table><div id="buttons"></div><br><br><p style="color:#008000;font-size:30px" id="right_wrong"></p><br><br><div align="center" id="answer"></div>
-
-		</div>-->
-<table border="1" align="center" style="background-color:#FFD4A8;" border="0" id="viterbiDecoding" width="50%">
+<!-- User interactive area starts -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/custom.css') }}">
+<h4><strong> Viterbi Decoding </strong></h4>
+<p><strong>Sentence:</strong> Book a park </p>		
+<i style="color:blue; font-size:15px;">You can answer a column only if you have completed the previous ones.(note:answer can also be upto three decimals)</i><br/><br/>
+<table border="1" align="center" style="background-color:#FFD4A8;" border="0" id="viterbiDecoding">
 	<tbody>
 		<tr>
-			<td></td>
-			<td align="center"><b>Book</b></td>
-			<td align="center"><b>a</b></td>
-			<td align="center"><b>park</b></td>
-		</tr>
-		<tr>
-			<td align="center"><b>determiner</b></td>
-			<td align="center"><input type="text" name="v0" id="v0" onclick="change();" style="width:30px" align="center" value="0"></td>
-			<td align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-			<td align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-		</tr>
-		<tr>
-			<td align="center"><b>noun</b></td><td align="center"><input type="text" name="v1" id="v1" onclick="change();" style="width:30px" align="center" value="0"></td><td align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-			<td align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr><tr><td align="center"><b>verb</b></td><td align="center"><input type="text" name="v2" id="v2" onclick="change();" style="width:30px" align="center" value="0"></td>
-			<td align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td><td align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr><tr><td align="center"><b>preposition</b></td>
-			<td align="center"><input type="text" name="v3" id="v3" onclick="change();" style="width:30px" align="center" value="0"></td>
-			<td align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-			<td align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		<td></td>
+		<td align="center"> <b>Book</b> </td>
+		<td align="center"> <b>a</b> </td>
+		<td align="center"> <b>park</b> </td>
+		</tr> <tr>
+		<td align="center"> <b>determiner</b> </td>
+		<td align="center" id="bv00"> <input type="text" name="v00" id="v00" style="width:30px" align="center" value="0"> </td>
+		<td align="center" id="bv10" style="display:none;"> <input type="text" name="v10" id="v10" style="width:30px" align="center" value="0"> </td>
+		<td align="center" id="bv20" style="display:none;"> <input type="text" name="v20" id="v20" style="width:30px" align="center" value="0"> </td>
+		<td align="center" id="sp10">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		<td align="center" id="sp20">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		</tr> <tr>
+		<td align="center"> <b>noun</b> </td>
+		<td align="center" id="bv01"> <input type="text" name="v01" id="v01" style="width:30px" align="center" value="0"> </td>
+		<td align="center" id="bv11" style="display:none;"> <input type="text" name="v11" id="v11" style="width:30px" align="center" value="0"> </td>
+		<td align="center" id="bv21" style="display:none;"> <input type="text" name="v21" id="v21" style="width:30px" align="center" value="0"> </td>
+		<td align="center" id="sp11">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		<td align="center" id="sp21">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		</tr> <tr>
+		<td align="center"> <b>verb</b> </td>
+		<td align="center" id="bv02"> <input type="text" name="v02" id="v02" style="width:30px" align="center" value="0"> </td>
+		<td align="center" id="bv12" style="display:none;"> <input type="text" name="v12" id="v12" style="width:30px" align="center" value="0"> </td>
+		<td align="center" id="bv22" style="display:none;"> <input type="text" name="v22" id="v22" style="width:30px" align="center" value="0"> </td>
+		<td align="center" id="sp12">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		<td align="center" id="sp22">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		</tr> <tr>
+		<td align="center"> <b>preposition</b> </td>
+		<td align="center" id="bv03"> <input type="text" name="v03" id="v03" style="width:30px" align="center" value="0"> </td>
+		<td align="center" id="bv13" style="display:none;"> <input type="text" name="v13" id="v13" style="width:30px" align="center" value="0"> </td>
+		<td align="center" id="bv23" style="display:none;"> <input type="text" name="v23" id="v23" style="width:30px" align="center" value="0"> </td>
+		<td align="center" id="sp13">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		<td align="center" id="sp23">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
 		</tr>
 	</tbody>
 </table>
 
-<br><br>
+<!-- Add onclick event here -->
+<!-- <button onclick="checkValue('corpus1','3','5','1','0');">Check</button> -->
+<div id="btns">
+<br/><br/><button id="chkbtn" onclick="checkVal('0')">Check</button>
+</div>
 
-<button onclick="checkValue('corpus1','3','5','1','0');">Check</button>
+<br>
+<div id="ansdiv"></div>
+
+<!-- ANSWER DIVS INVISIBLE BY DEFAULT. USED FOR FAST LOADING -->
+<div id="ans1" style="display:none;">
+<table border="1" id="table1" align="center" style="background-color:#FFD4A8;" border="0" width="50%">
+	<tbody>
+		<tr>
+		<td></td>
+		<td align="center"> <b>Book</b> </td>
+		<td align="center"> <b>a</b> </td>
+		<td align="center"> <b>park</b> </td>
+		</tr> <tr>
+		<td align="center"> <b>determiner</b> </td>
+		<td align="center"> 0 </td>
+		<td align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		<td align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		</tr> <tr>
+		<td align="center"> <b>noun</b> </td>
+		<td align="center"> 0 </td>
+		<td align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		<td align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		</tr> <tr>
+		<td align="center"> <b>verb</b> </td>
+		<td align="center"> 0.5 </td>
+		<td align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		<td align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		</tr> <tr>
+		<td align="center"> <b>preposition</b> </td>
+		<td align="center"> 0 </td>
+		<td align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		<td align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+
+<div id="ans2" style="display:none;">
+<br/><br/>
+<table border="1" id="table2" align="center" style="background-color:#FFD4A8;" border="0" width="50%">
+	<tbody>
+		<tr>
+		<td></td>
+		<td align="center"> <b>Book</b> </td>
+		<td align="center"> <b>a</b> </td>
+		<td align="center"> <b>park</b> </td>
+		</tr> <tr>
+		<td align="center"> <b>determiner</b> </td>
+		<td align="center"> 0 </td>
+		<td align="center"> 0.165 </td>
+		<td align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		</tr> <tr>
+		<td align="center"> <b>noun</b> </td>
+		<td align="center"> 0 </td>
+		<td align="center"> 0 </td>
+		<td align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		</tr> <tr>
+		<td align="center"> <b>verb</b> </td>
+		<td align="center"> 0.5 </td>
+		<td align="center"> 0 </td>
+		<td align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		</tr> <tr>
+		<td align="center"> <b>preposition</b> </td>
+		<td align="center"> 0 </td>
+		<td align="center"> 0 </td>
+		<td align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+		</tr>
+	</tbody>
+</table>
+</div>
+
+<div id="ans3" style="display:none;">
+<br/><br/>
+<table border="1" id="table3" align="center" style="background-color:#FFD4A8;" border="0" width="50%">
+	<tbody>
+		<tr>
+		<td></td>
+		<td align="center"> <b>Book</b> </td>
+		<td align="center"> <b>a</b> </td>
+		<td align="center"> <b>park</b> </td>
+		</tr> <tr>
+		<td align="center"> <b>determiner</b> </td>
+		<td align="center"> 0 </td>
+		<td align="center"> 0.165 </td>
+		<td align="center"> 0 </td>
+		</tr> <tr>
+		<td align="center"> <b>noun</b> </td>
+		<td align="center"> 0 </td>
+		<td align="center"> 0 </td>
+		<td align="center"> 0.165 </td>
+		</tr> <tr>
+		<td align="center"> <b>verb</b> </td>
+		<td align="center"> 0.5 </td>
+		<td align="center"> 0 </td>
+		<td align="center"> 0 </td>
+		</tr> <tr>
+		<td align="center"> <b>preposition</b> </td>
+		<td align="center"> 0 </td>
+		<td align="center"> 0 </td>
+		<td align="center"> 0 </td>
+		</tr>
+	</tbody>
+</table>
+</div>
+<!-- END ANSWER DIVS -->
+
+
+</div>
+
+<!-- jQuery -->
+<script src="{{ url_for('static', filename='js/jquery.js') }}" ></script>
+
+<!-- Custom script -->
+<!-- <script src="{{ url_for('static', filename='js/experiment.js') }}" ></script> -->
+<script src="../static/js/experiment.js"></script>
+
+
+
 {% endblock content %}
+
