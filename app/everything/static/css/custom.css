@@ -1,0 +1,19 @@
+#viterbiDecoding 
+{
+	width: 80%;
+	height: 150px;
+	background-color:#FFD4A8; 
+}
+
+#viterbiDecoding td
+{
+	width: 100px;
+	height: 35px;
+}
+
+#table1, #table2, #table3
+{
+	width: 80%;
+	height: 150px;
+	background-color:#FFD4A8; 
+}
