@@ -1,11 +1,13 @@
-
-# POS Tagging - Viterbi Decoding
-
-
-#### This is an web application made using Python/Flask for Assignment 4 as part of our Introduction to Software Systems course.
-
-Run `python3 run.py` from the app folder to run the application. Run it on your local machine and follow the instructions to proceed further and learn more about the experiment. This app requires Flask and SQLAlchemy for Flask to run.
-<br>
-**Team Number:** 73<br>
-**Team Members:** Mustafa Siddiqui, Anirudh Palutla, Vinay Kumar Tadepalli
+# Project Title
+This is a web application made using Python/Flask for Assignment 4 as part of our Introduction to Software Systems course.
+## Getting Started
+Run the run.py file using the command `python3 run.py` on your local machine and follow the instructions to proceed further.
+### Prerequisites
+This app requires Flask, python3 and SQLAlchemy to be installed
+<br> Use the following commands to install them : 
+<br> `pip3 install flask` <br> `pip3 install flask_sqlalchemy` <br> `sudo apt install python3`
+## Built With
+Jquery and Bootstrap - For Javascript framework
+## Authors
+<ul> <li> Anirudh Palutla </li> <li> Mustafa Siddiqui</li> <li> Vinay Kumar Tadepalli </li></ul>
 
