@@ -2,9 +2,11 @@
 from flask import Flask, render_template, url_for, redirect, request
 from flask_sqlalchemy import SQLAlchemy
 from everything import db, app
+import pytest
 
 # Back-end for the Quiz database. Form answers from the quizzes page are stored in the database.
 class Answers(db.Model):
+	'''Class for the answers submitted in quiz'''
 	ans1 = db.Column(db.Text)
 	ans2 = db.Column(db.Text)
 	key = db.Column(db.Integer, primary_key=True)
@@ -21,6 +23,7 @@ class Answers(db.Model):
 
 # Hash function for unique ID for answer
 def getKey(q):
+	'''Creates a unique hash key based on the answer'''
 	l = len(q)
 	ans = 0
 	for i in range(l):
@@ -28,6 +31,7 @@ def getKey(q):
 	return ans
 
 def getQuizAns ():
+	'''Gets and adds the quiz answers to the database and redirects to the answers submitted page'''
 	db.create_all()
 	q1 = request.form["q1"]
 	q2 = request.form["q2"]
