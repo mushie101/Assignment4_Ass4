@@ -1,5 +1,0 @@
-Flask
-SQLAlchemy
-Python
-HTML
-JavaScript
