@@ -1,5 +1,5 @@
 # Project Title
-ISS Assignment-4
+This is a web application made using Python/Flask for Assignment 4 as part of our Introduction to Software Systems course.
 ## Getting Started
 Run the run.py file using the command `python3 run.py` on your local machine and follow the instructions to proceed further.
 ### Prerequisites
